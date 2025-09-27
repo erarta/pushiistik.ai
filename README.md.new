@@ -1,0 +1,80 @@
+# 🧸 SmartToy AI - Landing Page
+
+Современный landing page для умной игрушки SmartToy AI, построенный на Next.js 15 с Tailwind CSS.
+
+## 🚀 Быстрый старт
+
+```bash
+# Установка зависимостей (если еще не установлены)
+npm install
+
+# Запуск в режиме разработки
+npm run dev
+
+# Открой http://localhost:3000
+```
+
+## 🛠 Технологии
+
+- **Next.js 15** с App Router
+- **TypeScript** для типизации
+- **Tailwind CSS** для стилизации  
+- **Responsive Design** - адаптивный дизайн
+- **Scroll Animations** - анимации при скролле
+
+## 📦 Деплой на Vercel
+
+```bash
+# Через Vercel CLI
+npm i -g vercel
+vercel --prod
+
+# Или push в GitHub и импортируй на vercel.com
+```
+
+## ✨ Особенности
+
+- 🎨 Современный дизайн с градиентами
+- 📱 Полностью адаптивный
+- ⚡ Оптимизирован для производительности
+- 🚀 SEO-friendly
+- 🎯 TypeScript для надежности
+
+## 📁 Структура
+
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── Header.tsx
+│   │   ├── Hero.tsx
+│   │   ├── Features.tsx
+│   │   ├── Product.tsx
+│   │   ├── CTA.tsx
+│   │   └── Footer.tsx
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+```
+
+## 🎯 Использование
+
+1. **Замени файлы** - скопируй содержимое файлов из этого артефакта
+2. **Запусти проект** - `npm run dev`
+3. **Кастомизируй** - измени цвета, текст, изображения
+4. **Деплой** - `vercel --prod`
+
+## 🛠 Кастомизация
+
+### Цвета
+Измени в `tailwind.config.ts` или используй готовые Tailwind классы:
+- `from-purple-600` → `from-blue-600`
+- `to-pink-500` → `to-green-500`
+
+### Контент  
+Отредактируй текст в соответствующих компонентах в папке `components/`
+
+### Анимации
+Добавь новые анимации в `globals.css` или используй Tailwind утилиты
+
+Готов к запуску! 🚀
