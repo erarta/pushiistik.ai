@@ -13,9 +13,10 @@ useEffect(() => {
 // Smooth scrolling for anchor links
 const handleAnchorClick = (e: Event) => {
   const target = e.target as HTMLAnchorElement
-  if (target.getAttribute('href')?.startsWith('#')) {
+  const href = target.getAttribute('href')
+  if (href?.startsWith('#') && href.length > 1) {
     e.preventDefault()
-    const element = document.querySelector(target.getAttribute('href')!)
+    const element = document.querySelector(href)
     if (element) {
       element.scrollIntoView({
         behavior: 'smooth',
@@ -32,10 +33,10 @@ const handleScroll = () => {
   const header = document.querySelector('.header') as HTMLElement
   if (header) {
     if (window.scrollY > 100) {
-      header.style.background = 'rgba(255, 255, 255, 0.98)'
-      header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)'
+      header.style.background = 'linear-gradient(to right, rgba(88, 28, 135, 0.95), rgba(168, 85, 247, 0.85), rgba(236, 72, 153, 0.95))'
+      header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.3)'
     } else {
-      header.style.background = 'rgba(255, 255, 255, 0.95)'
+      header.style.background = 'linear-gradient(to right, rgba(88, 28, 135, 0.2), rgba(168, 85, 247, 0.1), rgba(236, 72, 153, 0.2))'
       header.style.boxShadow = 'none'
     }
   }

@@ -12,8 +12,8 @@ export default function Footer() {
 
           <div>
             <h3 className="text-lg font-semibold mb-4 text-purple-400">Контакты</h3>
-            <p className="text-gray-400">Email: hello@smarttoy.ai</p>
-            <p className="text-gray-400">Telegram: @smarttoyai</p>
+            <p className="text-gray-400">Email: evgeniy@erarta.ai</p>
+            <p className="text-gray-400">Telegram: @edubskiy</p>
           </div>
 
           <div>
