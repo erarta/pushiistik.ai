@@ -155,16 +155,25 @@ export default function Testimonials() {
           </h3>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[...Array(8)].map((_, index) => (
+            {[
+              { icon: '📸', text: 'Фото с игрушкой', gradient: 'from-blue-100 to-blue-200' },
+              { icon: '🎥', text: 'Видео общения', gradient: 'from-purple-100 to-purple-200' },
+              { icon: '🧸', text: 'Любимые моменты', gradient: 'from-pink-100 to-pink-200' },
+              { icon: '👶', text: 'Счастливые дети', gradient: 'from-green-100 to-green-200' },
+              { icon: '🎵', text: 'Поющие песенки', gradient: 'from-yellow-100 to-yellow-200' },
+              { icon: '📚', text: 'Время сказок', gradient: 'from-indigo-100 to-indigo-200' },
+              { icon: '🎨', text: 'Творческие игры', gradient: 'from-orange-100 to-orange-200' },
+              { icon: '❤️', text: 'Особые моменты', gradient: 'from-red-100 to-red-200' }
+            ].map((item, index) => (
               <div
                 key={index}
-                className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center hover:scale-105 transition-transform duration-300 cursor-pointer"
+                className={`aspect-square bg-gradient-to-br ${item.gradient} rounded-2xl flex items-center justify-center hover:scale-105 transition-transform duration-300 cursor-pointer shadow-sm hover:shadow-md`}
               >
                 <div className="text-center">
                   <div className="text-3xl mb-2">
-                    {index % 4 === 0 ? '📸' : index % 4 === 1 ? '🎥' : index % 4 === 2 ? '🧸' : '👶'}
+                    {item.icon}
                   </div>
-                  <p className="text-xs text-gray-500">Фото от пользователей</p>
+                  <p className="text-xs text-gray-600 font-medium">{item.text}</p>
                 </div>
               </div>
             ))}
