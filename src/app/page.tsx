@@ -3,8 +3,10 @@
 import { useEffect } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
+import HowItWorks from './components/HowItWorks'
 import Features from './components/Features'
 import Product from './components/Product'
+import Testimonials from './components/Testimonials'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 
@@ -73,8 +75,10 @@ return (
 <main className="overflow-x-hidden">
   <Header />
   <Hero />
+  <HowItWorks />
   <Features />
   <Product />
+  <Testimonials />
   <CTA />
   <Footer />
 </main>
