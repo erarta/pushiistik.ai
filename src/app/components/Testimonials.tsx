@@ -157,7 +157,7 @@ export default function Testimonials() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { icon: '📸', text: 'Фото с игрушкой', gradient: 'from-blue-100 to-blue-200' },
-              { icon: '🎥', text: 'Видео общения', gradient: 'from-purple-100 to-purple-200' },
+              { icon: '🎙️', text: 'Записи голоса', gradient: 'from-purple-100 to-purple-200' },
               { icon: '🧸', text: 'Любимые моменты', gradient: 'from-pink-100 to-pink-200' },
               { icon: '👶', text: 'Счастливые дети', gradient: 'from-green-100 to-green-200' },
               { icon: '🎵', text: 'Поющие песенки', gradient: 'from-yellow-100 to-yellow-200' },
