@@ -5,8 +5,10 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import HowItWorks from './components/HowItWorks'
 import Features from './components/Features'
+import UseCases from './components/UseCases'
 import Product from './components/Product'
 import Testimonials from './components/Testimonials'
+import FAQ from './components/FAQ'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 
@@ -77,8 +79,10 @@ return (
   <Hero />
   <HowItWorks />
   <Features />
+  <UseCases />
   <Product />
   <Testimonials />
+  <FAQ />
   <CTA />
   <Footer />
 </main>
