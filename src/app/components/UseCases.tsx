@@ -214,39 +214,40 @@ export default function UseCases() {
                 className="text-center p-6 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-100 hover:shadow-lg transition-all duration-300"
               >
                 {/* Mock phone screen */}
-                <div className="w-48 h-80 bg-gradient-to-b from-gray-900 to-gray-800 rounded-3xl mx-auto mb-6 p-2 shadow-2xl">
-                  <div className="w-full h-full bg-gradient-to-b from-slate-50 to-white rounded-2xl p-3 flex flex-col">
+                <div className="w-44 h-80 bg-gradient-to-b from-gray-900 to-gray-800 rounded-3xl mx-auto mb-6 p-1.5 shadow-2xl">
+                  <div className="w-full h-full bg-gradient-to-b from-slate-50 to-white rounded-2xl p-2.5 flex flex-col overflow-hidden">
                     {/* Status bar */}
-                    <div className="flex justify-between items-center mb-3">
-                      <div className="w-8 h-1 bg-gray-400 rounded-full"></div>
-                      <div className="text-xs font-medium text-gray-800">9:41</div>
-                      <div className="flex space-x-1">
-                        <div className="w-1 h-1 bg-green-500 rounded-full"></div>
-                        <div className="w-1 h-1 bg-green-500 rounded-full"></div>
-                        <div className="w-1 h-1 bg-green-500 rounded-full"></div>
+                    <div className="flex justify-between items-center mb-2">
+                      <div className="w-6 h-0.5 bg-gray-900 rounded-full"></div>
+                      <div className="text-xs font-semibold text-gray-900">9:41</div>
+                      <div className="flex space-x-0.5">
+                        <div className="w-0.5 h-0.5 bg-gray-900 rounded-full"></div>
+                        <div className="w-0.5 h-0.5 bg-gray-900 rounded-full"></div>
+                        <div className="w-0.5 h-0.5 bg-gray-900 rounded-full"></div>
+                        <div className="w-0.5 h-0.5 bg-green-500 rounded-full"></div>
                       </div>
                     </div>
 
                     {/* Header */}
-                    <div className="text-xs font-bold text-gray-800 mb-3 text-left">{screen.title}</div>
+                    <div className="text-xs font-bold text-gray-900 mb-2.5 text-left truncate">{screen.title}</div>
 
                     {/* Content based on screen type */}
-                    <div className="flex-1 space-y-2">
+                    <div className="flex-1 space-y-1.5 overflow-hidden">
                       {screen.screenType === 'dashboard' && screen.stats && (
                         <>
                           {screen.stats.map((stat, statIndex) => (
-                            <div key={statIndex} className="bg-white rounded-lg p-2 shadow-sm">
-                              <div className="flex items-center space-x-2">
-                                <div className={`w-2 h-2 rounded-full ${stat.color}`}></div>
-                                <div className="flex-1">
-                                  <div className="text-xs text-gray-600">{stat.label}</div>
-                                  <div className="text-xs font-semibold text-gray-800">{stat.value}</div>
+                            <div key={statIndex} className="bg-white rounded-lg p-1.5 shadow-sm border border-gray-100">
+                              <div className="flex items-center space-x-1.5">
+                                <div className={`w-1.5 h-1.5 rounded-full ${stat.color} flex-shrink-0`}></div>
+                                <div className="flex-1 min-w-0">
+                                  <div className="text-xs text-gray-600 truncate">{stat.label}</div>
+                                  <div className="text-xs font-semibold text-gray-900 truncate">{stat.value}</div>
                                 </div>
                               </div>
                             </div>
                           ))}
-                          <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg p-2 mt-3">
-                            <div className="text-xs font-medium text-purple-800">📊 Еженедельный отчет</div>
+                          <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg p-1.5 mt-2">
+                            <div className="text-xs font-medium text-purple-800 truncate">📊 Отчет</div>
                           </div>
                         </>
                       )}
@@ -254,18 +255,18 @@ export default function UseCases() {
                       {screen.screenType === 'library' && screen.categories && (
                         <>
                           {screen.categories.map((category, catIndex) => (
-                            <div key={catIndex} className={`bg-gradient-to-r ${category.color} rounded-lg p-2 text-white`}>
-                              <div className="flex items-center space-x-2">
-                                <span className="text-sm">{category.icon}</span>
-                                <div className="flex-1">
-                                  <div className="text-xs font-semibold">{category.name}</div>
-                                  <div className="text-xs opacity-90">{category.count}</div>
+                            <div key={catIndex} className={`bg-gradient-to-r ${category.color} rounded-lg p-1.5 text-white`}>
+                              <div className="flex items-center space-x-1.5">
+                                <span className="text-xs flex-shrink-0">{category.icon}</span>
+                                <div className="flex-1 min-w-0">
+                                  <div className="text-xs font-semibold truncate">{category.name}</div>
+                                  <div className="text-xs opacity-90 truncate">{category.count}</div>
                                 </div>
                               </div>
                             </div>
                           ))}
-                          <div className="bg-yellow-100 rounded-lg p-2 mt-2">
-                            <div className="text-xs text-yellow-800 font-medium">✨ Новинки недели</div>
+                          <div className="bg-yellow-100 rounded-lg p-1.5 mt-1.5">
+                            <div className="text-xs text-yellow-800 font-medium truncate">✨ Новинки</div>
                           </div>
                         </>
                       )}
@@ -273,28 +274,28 @@ export default function UseCases() {
                       {screen.screenType === 'monitoring' && screen.activities && (
                         <>
                           {screen.activities.map((activity, actIndex) => (
-                            <div key={actIndex} className="bg-white rounded-lg p-2 shadow-sm border-l-2 border-blue-300">
-                              <div className="flex justify-between items-start">
-                                <div className="flex-1">
-                                  <div className="text-xs font-medium text-gray-800">{activity.activity}</div>
-                                  <div className="text-xs text-gray-500">{activity.duration}</div>
+                            <div key={actIndex} className="bg-white rounded-lg p-1.5 shadow-sm border-l-2 border-blue-300">
+                              <div className="flex justify-between items-start space-x-1">
+                                <div className="flex-1 min-w-0">
+                                  <div className="text-xs font-medium text-gray-900 truncate">{activity.activity}</div>
+                                  <div className="text-xs text-gray-500 truncate">{activity.duration}</div>
                                 </div>
-                                <div className="text-xs text-gray-400">{activity.time}</div>
+                                <div className="text-xs text-gray-400 flex-shrink-0">{activity.time}</div>
                               </div>
                             </div>
                           ))}
-                          <div className="bg-green-100 rounded-lg p-2 mt-2">
-                            <div className="text-xs text-green-800 font-medium">✅ Все безопасно</div>
+                          <div className="bg-green-100 rounded-lg p-1.5 mt-1.5">
+                            <div className="text-xs text-green-800 font-medium truncate">✅ Безопасно</div>
                           </div>
                         </>
                       )}
                     </div>
 
                     {/* Bottom navigation */}
-                    <div className="flex justify-around mt-3 pt-2 border-t border-gray-200">
-                      <div className="w-4 h-4 bg-purple-400 rounded-sm"></div>
-                      <div className="w-4 h-4 bg-gray-300 rounded-sm"></div>
-                      <div className="w-4 h-4 bg-gray-300 rounded-sm"></div>
+                    <div className="flex justify-center space-x-3 mt-2.5 pt-1.5 border-t border-gray-200">
+                      <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                      <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
+                      <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
                     </div>
                   </div>
                 </div>
