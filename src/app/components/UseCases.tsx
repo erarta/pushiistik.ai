@@ -54,17 +54,32 @@ export default function UseCases() {
     {
       title: "Родительская панель",
       description: "Отслеживайте прогресс и настраивайте контент",
-      features: ["📊 Статистика развития", "⚙️ Настройки безопасности", "📱 Удаленное управление"]
+      screenType: "dashboard",
+      stats: [
+        { label: "Время общения сегодня", value: "2ч 15м", color: "bg-blue-500" },
+        { label: "Новых слов изучено", value: "12", color: "bg-green-500" },
+        { label: "Уровень эмоций", value: "😊 Радость", color: "bg-yellow-500" }
+      ]
     },
     {
       title: "Библиотека контента",
       description: "Тысячи сказок, песен и обучающих материалов",
-      features: ["📚 1000+ сказок", "🎵 Музыка и песни", "🧩 Интерактивные игры"]
+      screenType: "library",
+      categories: [
+        { name: "Сказки", count: "1,200+", icon: "📚", color: "from-purple-400 to-purple-600" },
+        { name: "Песни", count: "500+", icon: "🎵", color: "from-pink-400 to-pink-600" },
+        { name: "Игры", count: "200+", icon: "🧩", color: "from-blue-400 to-blue-600" }
+      ]
     },
     {
       title: "Мониторинг общения",
       description: "Безопасное и контролируемое взаимодействие",
-      features: ["🔒 Фильтр контента", "👨‍👩‍👧‍👦 Семейные настройки", "📈 Отчеты активности"]
+      screenType: "monitoring",
+      activities: [
+        { time: "14:30", activity: "Сказка про космос", duration: "15 мин", type: "story" },
+        { time: "15:45", activity: "Изучение цифр", duration: "8 мин", type: "learning" },
+        { time: "16:20", activity: "Эмоциональный разговор", duration: "12 мин", type: "emotion" }
+      ]
     }
   ]
 
@@ -200,15 +215,86 @@ export default function UseCases() {
               >
                 {/* Mock phone screen */}
                 <div className="w-48 h-80 bg-gradient-to-b from-gray-900 to-gray-800 rounded-3xl mx-auto mb-6 p-2 shadow-2xl">
-                  <div className="w-full h-full bg-gradient-to-b from-purple-100 to-white rounded-2xl p-4 flex flex-col">
-                    <div className="w-12 h-1 bg-gray-400 rounded-full mx-auto mb-4"></div>
-                    <div className="text-xs text-gray-800 font-semibold mb-4">{screen.title}</div>
-                    <div className="space-y-2 flex-1">
-                      {screen.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="text-xs text-gray-600 bg-white/60 rounded p-2">
-                          {feature}
-                        </div>
-                      ))}
+                  <div className="w-full h-full bg-gradient-to-b from-slate-50 to-white rounded-2xl p-3 flex flex-col">
+                    {/* Status bar */}
+                    <div className="flex justify-between items-center mb-3">
+                      <div className="w-8 h-1 bg-gray-400 rounded-full"></div>
+                      <div className="text-xs font-medium text-gray-800">9:41</div>
+                      <div className="flex space-x-1">
+                        <div className="w-1 h-1 bg-green-500 rounded-full"></div>
+                        <div className="w-1 h-1 bg-green-500 rounded-full"></div>
+                        <div className="w-1 h-1 bg-green-500 rounded-full"></div>
+                      </div>
+                    </div>
+
+                    {/* Header */}
+                    <div className="text-xs font-bold text-gray-800 mb-3 text-left">{screen.title}</div>
+
+                    {/* Content based on screen type */}
+                    <div className="flex-1 space-y-2">
+                      {screen.screenType === 'dashboard' && screen.stats && (
+                        <>
+                          {screen.stats.map((stat, statIndex) => (
+                            <div key={statIndex} className="bg-white rounded-lg p-2 shadow-sm">
+                              <div className="flex items-center space-x-2">
+                                <div className={`w-2 h-2 rounded-full ${stat.color}`}></div>
+                                <div className="flex-1">
+                                  <div className="text-xs text-gray-600">{stat.label}</div>
+                                  <div className="text-xs font-semibold text-gray-800">{stat.value}</div>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                          <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg p-2 mt-3">
+                            <div className="text-xs font-medium text-purple-800">📊 Еженедельный отчет</div>
+                          </div>
+                        </>
+                      )}
+
+                      {screen.screenType === 'library' && screen.categories && (
+                        <>
+                          {screen.categories.map((category, catIndex) => (
+                            <div key={catIndex} className={`bg-gradient-to-r ${category.color} rounded-lg p-2 text-white`}>
+                              <div className="flex items-center space-x-2">
+                                <span className="text-sm">{category.icon}</span>
+                                <div className="flex-1">
+                                  <div className="text-xs font-semibold">{category.name}</div>
+                                  <div className="text-xs opacity-90">{category.count}</div>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                          <div className="bg-yellow-100 rounded-lg p-2 mt-2">
+                            <div className="text-xs text-yellow-800 font-medium">✨ Новинки недели</div>
+                          </div>
+                        </>
+                      )}
+
+                      {screen.screenType === 'monitoring' && screen.activities && (
+                        <>
+                          {screen.activities.map((activity, actIndex) => (
+                            <div key={actIndex} className="bg-white rounded-lg p-2 shadow-sm border-l-2 border-blue-300">
+                              <div className="flex justify-between items-start">
+                                <div className="flex-1">
+                                  <div className="text-xs font-medium text-gray-800">{activity.activity}</div>
+                                  <div className="text-xs text-gray-500">{activity.duration}</div>
+                                </div>
+                                <div className="text-xs text-gray-400">{activity.time}</div>
+                              </div>
+                            </div>
+                          ))}
+                          <div className="bg-green-100 rounded-lg p-2 mt-2">
+                            <div className="text-xs text-green-800 font-medium">✅ Все безопасно</div>
+                          </div>
+                        </>
+                      )}
+                    </div>
+
+                    {/* Bottom navigation */}
+                    <div className="flex justify-around mt-3 pt-2 border-t border-gray-200">
+                      <div className="w-4 h-4 bg-purple-400 rounded-sm"></div>
+                      <div className="w-4 h-4 bg-gray-300 rounded-sm"></div>
+                      <div className="w-4 h-4 bg-gray-300 rounded-sm"></div>
                     </div>
                   </div>
                 </div>

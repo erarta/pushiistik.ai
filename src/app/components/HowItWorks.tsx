@@ -51,7 +51,7 @@ export default function HowItWorks() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveStep((prev) => (prev + 1) % steps.length)
-    }, 3000)
+    }, 4000)
 
     return () => clearInterval(interval)
   }, [steps.length])
@@ -124,19 +124,23 @@ export default function HowItWorks() {
               onClick={() => setActiveStep(index)}
             >
               <div
-                className={`w-20 h-20 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center text-2xl cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300 ${
-                  activeStep === index ? 'shadow-2xl ring-4 ring-white' : ''
+                className={`w-20 h-20 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center text-2xl cursor-pointer shadow-lg hover:shadow-xl transition-all duration-700 ease-in-out ${
+                  activeStep === index ? 'shadow-2xl ring-4 ring-white ring-opacity-80 scale-110' : 'scale-100'
                 }`}
               >
-                <span className="animate-bounce">{step.icon}</span>
+                <span className={`transition-all duration-500 ${activeStep === index ? 'animate-bounce text-3xl' : 'text-2xl'}`}>
+                  {step.icon}
+                </span>
               </div>
 
-              {activeStep === index && (
-                <div className="absolute top-24 left-1/2 transform -translate-x-1/2 bg-white rounded-xl p-4 shadow-xl border border-gray-100 min-w-64 animate-in fade-in duration-500">
-                  <h4 className="font-semibold text-gray-800 mb-2">{step.title}</h4>
-                  <p className="text-sm text-gray-600">{step.description}</p>
-                </div>
-              )}
+              <div className={`absolute top-24 left-1/2 transform -translate-x-1/2 bg-white rounded-xl p-4 shadow-xl border border-gray-100 min-w-64 transition-all duration-500 ease-in-out ${
+                activeStep === index
+                  ? 'opacity-100 scale-100 translate-y-0'
+                  : 'opacity-0 scale-95 translate-y-2 pointer-events-none'
+              }`}>
+                <h4 className="font-semibold text-gray-800 mb-2">{step.title}</h4>
+                <p className="text-sm text-gray-600">{step.description}</p>
+              </div>
             </div>
           ))}
         </div>
