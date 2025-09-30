@@ -42,17 +42,33 @@ export default function Hero() {
 
       {/* Enhanced floating particles with 3D effect */}
       <div className="absolute inset-0 opacity-40">
-        {[...Array(15)].map((_, i) => (
+        {[
+          { w: 4, h: 3, t: 15, l: 20, d: 0, b: 0.5 },
+          { w: 3, h: 5, t: 65, l: 80, d: 2, b: 1 },
+          { w: 5, h: 4, t: 25, l: 10, d: 4, b: 0.3 },
+          { w: 2, h: 2, t: 85, l: 90, d: 1, b: 0.8 },
+          { w: 6, h: 3, t: 45, l: 70, d: 3, b: 1.2 },
+          { w: 3, h: 4, t: 75, l: 30, d: 5, b: 0.6 },
+          { w: 4, h: 5, t: 35, l: 60, d: 1.5, b: 0.9 },
+          { w: 2, h: 3, t: 55, l: 15, d: 6, b: 0.4 },
+          { w: 5, h: 2, t: 10, l: 85, d: 2.5, b: 1.1 },
+          { w: 3, h: 6, t: 90, l: 45, d: 4.5, b: 0.7 },
+          { w: 4, h: 4, t: 20, l: 75, d: 0.8, b: 0.2 },
+          { w: 6, h: 3, t: 70, l: 25, d: 3.2, b: 1.3 },
+          { w: 2, h: 4, t: 40, l: 95, d: 5.5, b: 0.6 },
+          { w: 5, h: 5, t: 80, l: 55, d: 1.8, b: 0.9 },
+          { w: 3, h: 2, t: 60, l: 5, d: 7, b: 0.5 }
+        ].map((particle, i) => (
           <div
             key={i}
             className={`absolute bg-white rounded-full animate-float-slow`}
             style={{
-              width: `${Math.random() * 6 + 2}px`,
-              height: `${Math.random() * 6 + 2}px`,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 8}s`,
-              filter: `blur(${Math.random() * 2}px)`
+              width: `${particle.w}px`,
+              height: `${particle.h}px`,
+              top: `${particle.t}%`,
+              left: `${particle.l}%`,
+              animationDelay: `${particle.d}s`,
+              filter: `blur(${particle.b}px)`
             }}
           ></div>
         ))}
